@@ -1,0 +1,122 @@
+[
+  {
+    "Id": 1,
+    "studentId": 1,
+    "classId": 1,
+    "date": "2024-01-08",
+    "status": "present",
+    "reason": ""
+  },
+  {
+    "Id": 2,
+    "studentId": 1,
+    "classId": 1,
+    "date": "2024-01-10",
+    "status": "present",
+    "reason": ""
+  },
+  {
+    "Id": 3,
+    "studentId": 1,
+    "classId": 1,
+    "date": "2024-01-12",
+    "status": "tardy",
+    "reason": "Bus delay"
+  },
+  {
+    "Id": 4,
+    "studentId": 3,
+    "classId": 1,
+    "date": "2024-01-08",
+    "status": "present",
+    "reason": ""
+  },
+  {
+    "Id": 5,
+    "studentId": 3,
+    "classId": 1,
+    "date": "2024-01-10",
+    "status": "absent",
+    "reason": "Sick"
+  },
+  {
+    "Id": 6,
+    "studentId": 3,
+    "classId": 1,
+    "date": "2024-01-12",
+    "status": "present",
+    "reason": ""
+  },
+  {
+    "Id": 7,
+    "studentId": 6,
+    "classId": 1,
+    "date": "2024-01-08",
+    "status": "present",
+    "reason": ""
+  },
+  {
+    "Id": 8,
+    "studentId": 6,
+    "classId": 1,
+    "date": "2024-01-10",
+    "status": "present",
+    "reason": ""
+  },
+  {
+    "Id": 9,
+    "studentId": 9,
+    "classId": 1,
+    "date": "2024-01-08",
+    "status": "present",
+    "reason": ""
+  },
+  {
+    "Id": 10,
+    "studentId": 9,
+    "classId": 1,
+    "date": "2024-01-10",
+    "status": "excused",
+    "reason": "Doctor appointment"
+  },
+  {
+    "Id": 11,
+    "studentId": 2,
+    "classId": 2,
+    "date": "2024-01-09",
+    "status": "present",
+    "reason": ""
+  },
+  {
+    "Id": 12,
+    "studentId": 2,
+    "classId": 2,
+    "date": "2024-01-11",
+    "status": "present",
+    "reason": ""
+  },
+  {
+    "Id": 13,
+    "studentId": 5,
+    "classId": 2,
+    "date": "2024-01-09",
+    "status": "present",
+    "reason": ""
+  },
+  {
+    "Id": 14,
+    "studentId": 5,
+    "classId": 2,
+    "date": "2024-01-11",
+    "status": "tardy",
+    "reason": "Traffic"
+  },
+  {
+    "Id": 15,
+    "studentId": 10,
+    "classId": 2,
+    "date": "2024-01-09",
+    "status": "present",
+    "reason": ""
+  }
+]

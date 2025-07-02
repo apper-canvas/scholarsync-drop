@@ -1,0 +1,112 @@
+[
+  {
+    "Id": 1,
+    "firstName": "Emma",
+    "lastName": "Johnson",
+    "email": "emma.johnson@school.edu",
+    "dateOfBirth": "2006-03-15",
+    "enrollmentDate": "2023-08-20",
+    "gradeLevel": "11th",
+    "studentId": "SID001",
+    "photoUrl": null
+  },
+  {
+    "Id": 2,
+    "firstName": "Liam",
+    "lastName": "Smith",
+    "email": "liam.smith@school.edu",
+    "dateOfBirth": "2005-07-22",
+    "enrollmentDate": "2023-08-20",
+    "gradeLevel": "12th",
+    "studentId": "SID002",
+    "photoUrl": null
+  },
+  {
+    "Id": 3,
+    "firstName": "Olivia",
+    "lastName": "Brown",
+    "email": "olivia.brown@school.edu",
+    "dateOfBirth": "2006-11-08",
+    "enrollmentDate": "2023-08-20",
+    "gradeLevel": "11th",
+    "studentId": "SID003",
+    "photoUrl": null
+  },
+  {
+    "Id": 4,
+    "firstName": "Noah",
+    "lastName": "Davis",
+    "email": "noah.davis@school.edu",
+    "dateOfBirth": "2007-01-12",
+    "enrollmentDate": "2023-08-20",
+    "gradeLevel": "10th",
+    "studentId": "SID004",
+    "photoUrl": null
+  },
+  {
+    "Id": 5,
+    "firstName": "Ava",
+    "lastName": "Wilson",
+    "email": "ava.wilson@school.edu",
+    "dateOfBirth": "2005-09-30",
+    "enrollmentDate": "2023-08-20",
+    "gradeLevel": "12th",
+    "studentId": "SID005",
+    "photoUrl": null
+  },
+  {
+    "Id": 6,
+    "firstName": "Mason",
+    "lastName": "Miller",
+    "email": "mason.miller@school.edu",
+    "dateOfBirth": "2006-05-18",
+    "enrollmentDate": "2023-08-20",
+    "gradeLevel": "11th",
+    "studentId": "SID006",
+    "photoUrl": null
+  },
+  {
+    "Id": 7,
+    "firstName": "Sophia",
+    "lastName": "Moore",
+    "email": "sophia.moore@school.edu",
+    "dateOfBirth": "2007-12-03",
+    "enrollmentDate": "2023-08-20",
+    "gradeLevel": "10th",
+    "studentId": "SID007",
+    "photoUrl": null
+  },
+  {
+    "Id": 8,
+    "firstName": "Ethan",
+    "lastName": "Taylor",
+    "email": "ethan.taylor@school.edu",
+    "dateOfBirth": "2008-04-25",
+    "enrollmentDate": "2023-08-20",
+    "gradeLevel": "9th",
+    "studentId": "SID008",
+    "photoUrl": null
+  },
+  {
+    "Id": 9,
+    "firstName": "Isabella",
+    "lastName": "Anderson",
+    "email": "isabella.anderson@school.edu",
+    "dateOfBirth": "2006-08-14",
+    "enrollmentDate": "2023-08-20",
+    "gradeLevel": "11th",
+    "studentId": "SID009",
+    "photoUrl": null
+  },
+  {
+    "Id": 10,
+    "firstName": "Lucas",
+    "lastName": "Thomas",
+    "email": "lucas.thomas@school.edu",
+    "dateOfBirth": "2005-10-27",
+    "enrollmentDate": "2023-08-20",
+    "gradeLevel": "12th",
+    "studentId": "SID010",
+    "photoUrl": null
+  }
+]

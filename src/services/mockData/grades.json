@@ -1,0 +1,82 @@
+[
+  {
+    "Id": 1,
+    "studentId": 1,
+    "assignmentId": 1,
+    "score": 23,
+    "submittedDate": "2024-01-15",
+    "comments": "Excellent work on derivatives!"
+  },
+  {
+    "Id": 2,
+    "studentId": 1,
+    "assignmentId": 2,
+    "score": 18,
+    "submittedDate": "2024-01-12",
+    "comments": "Good effort, minor calculation errors"
+  },
+  {
+    "Id": 3,
+    "studentId": 3,
+    "assignmentId": 1,
+    "score": 21,
+    "submittedDate": "2024-01-15",
+    "comments": "Well done overall"
+  },
+  {
+    "Id": 4,
+    "studentId": 3,
+    "assignmentId": 2,
+    "score": 19,
+    "submittedDate": "2024-01-12",
+    "comments": "Nice work showing all steps"
+  },
+  {
+    "Id": 5,
+    "studentId": 6,
+    "assignmentId": 1,
+    "score": 22,
+    "submittedDate": "2024-01-15",
+    "comments": "Great understanding of concepts"
+  },
+  {
+    "Id": 6,
+    "studentId": 9,
+    "assignmentId": 1,
+    "score": 20,
+    "submittedDate": "2024-01-15",
+    "comments": "Good progress, keep practicing"
+  },
+  {
+    "Id": 7,
+    "studentId": 2,
+    "assignmentId": 4,
+    "score": 45,
+    "submittedDate": "2024-01-18",
+    "comments": "Excellent lab technique and analysis"
+  },
+  {
+    "Id": 8,
+    "studentId": 5,
+    "assignmentId": 5,
+    "score": 27,
+    "submittedDate": "2024-01-14",
+    "comments": "Good understanding of force concepts"
+  },
+  {
+    "Id": 9,
+    "studentId": 10,
+    "assignmentId": 4,
+    "score": 42,
+    "submittedDate": "2024-01-18",
+    "comments": "Well-structured report, clear conclusions"
+  },
+  {
+    "Id": 10,
+    "studentId": 4,
+    "assignmentId": 6,
+    "score": 68,
+    "submittedDate": "2024-01-22",
+    "comments": "Strong grasp of bonding theory"
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "Id": 1,
+    "classId": 1,
+    "name": "Calculus Quiz 1",
+    "category": "quiz",
+    "pointsPossible": 25,
+    "dueDate": "2024-01-15",
+    "weight": 1
+  },
+  {
+    "Id": 2,
+    "classId": 1,
+    "name": "Chapter 3 Homework",
+    "category": "homework",
+    "pointsPossible": 20,
+    "dueDate": "2024-01-12",
+    "weight": 0.5
+  },
+  {
+    "Id": 3,
+    "classId": 1,
+    "name": "Midterm Exam",
+    "category": "test",
+    "pointsPossible": 100,
+    "dueDate": "2024-01-20",
+    "weight": 2
+  },
+  {
+    "Id": 4,
+    "classId": 2,
+    "name": "Motion Lab Report",
+    "category": "project",
+    "pointsPossible": 50,
+    "dueDate": "2024-01-18",
+    "weight": 1.5
+  },
+  {
+    "Id": 5,
+    "classId": 2,
+    "name": "Forces Quiz",
+    "category": "quiz",
+    "pointsPossible": 30,
+    "dueDate": "2024-01-14",
+    "weight": 1
+  },
+  {
+    "Id": 6,
+    "classId": 3,
+    "name": "Chemical Bonding Test",
+    "category": "test",
+    "pointsPossible": 75,
+    "dueDate": "2024-01-22",
+    "weight": 2
+  },
+  {
+    "Id": 7,
+    "classId": 4,
+    "name": "Shakespeare Essay",
+    "category": "project",
+    "pointsPossible": 40,
+    "dueDate": "2024-01-25",
+    "weight": 1.5
+  },
+  {
+    "Id": 8,
+    "classId": 5,
+    "name": "WWI Timeline",
+    "category": "homework",
+    "pointsPossible": 15,
+    "dueDate": "2024-01-16",
+    "weight": 0.5
+  }
+]
