@@ -42,9 +42,9 @@ const Layout = () => {
           searchValue={searchValue}
           onSearchChange={(e) => setSearchValue(e.target.value)}
           showSearch={showSearch}
-        />
+/>
         
-        <main className="p-4 lg:p-6">
+        <main className="p-3 lg:p-4">
           <Outlet context={{ searchValue }} />
         </main>
       </div>
