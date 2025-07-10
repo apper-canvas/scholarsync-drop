@@ -87,14 +87,14 @@ const Grades = () => {
     return students.filter(student => currentClass.studentIds.includes(student.Id));
   };
 
-  const getCurrentClassAssignments = () => {
+const getCurrentClassAssignments = () => {
     if (!selectedClass) return [];
-    return assignments.filter(assignment => assignment.classId.toString() === selectedClass);
+    return assignments.filter(assignment => (assignment.classId || assignment.class_id)?.toString() === selectedClass);
   };
 
-  const getGrade = (studentId, assignmentId) => {
+const getGrade = (studentId, assignmentId) => {
     return grades.find(grade => 
-      grade.studentId === studentId && grade.assignmentId === assignmentId
+      (grade.studentId || grade.student_id) === studentId && (grade.assignmentId || grade.assignment_id) === assignmentId
     );
   };
 
@@ -257,8 +257,8 @@ const Grades = () => {
       ) : (
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
           <div className="px-6 py-4 border-b border-gray-200 flex items-center justify-between">
-            <h3 className="text-lg font-medium text-gray-900">
-              Gradebook - {classes.find(c => c.Id.toString() === selectedClass)?.name}
+<h3 className="text-lg font-medium text-gray-900">
+              Gradebook - {classes.find(c => c.Id.toString() === selectedClass)?.Name || classes.find(c => c.Id.toString() === selectedClass)?.name}
             </h3>
             <div className="text-sm text-gray-500">
               {classStudents.length} students • {classAssignments.length} assignments
@@ -285,10 +285,10 @@ const Grades = () => {
                     </th>
                     {classAssignments.map(assignment => (
                       <th key={assignment.Id} className="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[120px]">
-                        <div>
-                          <div className="font-semibold">{assignment.name}</div>
+<div>
+                          <div className="font-semibold">{assignment.Name || assignment.name}</div>
                           <div className="text-xs text-gray-400 capitalize">
-                            {assignment.category} • {assignment.pointsPossible}pts
+                            {assignment.category} • {assignment.pointsPossible || assignment.points_possible}pts
                           </div>
                         </div>
                       </th>
@@ -300,7 +300,7 @@ const Grades = () => {
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
                   {classStudents.map((student, index) => {
-                    const studentGrades = classAssignments.map(assignment => {
+const studentGrades = classAssignments.map(assignment => {
                       const grade = getGrade(student.Id, assignment.Id);
                       return grade ? grade.score : null;
                     });
@@ -327,12 +327,12 @@ const Grades = () => {
                                 </span>
                               </div>
                             </div>
-                            <div className="ml-3">
+<div className="ml-3">
                               <div className="text-sm font-medium text-gray-900">
-                                {student.firstName} {student.lastName}
+                                {student.first_name} {student.last_name}
                               </div>
                               <div className="text-xs text-gray-500">
-                                {student.studentId}
+                                {student.student_id}
                               </div>
                             </div>
                           </div>
@@ -345,9 +345,9 @@ const Grades = () => {
                               className="px-3 py-4 text-center cursor-pointer hover:bg-gray-100 transition-colors"
                               onClick={() => handleGradeClick(student, assignment)}
                             >
-                              <GradeCell
+<GradeCell
                                 score={grade?.score}
-                                maxScore={assignment.pointsPossible}
+                                maxScore={assignment.pointsPossible || assignment.points_possible}
                                 assignment={assignment}
                               />
                             </td>
@@ -451,18 +451,18 @@ const Grades = () => {
               <h3 className="text-lg font-semibold text-gray-900">
                 Enter Grade
               </h3>
-              <p className="text-sm text-gray-600">
-                {selectedStudent.firstName} {selectedStudent.lastName} • {selectedAssignment.name}
+<p className="text-sm text-gray-600">
+                {selectedStudent.first_name} {selectedStudent.last_name} • {selectedAssignment.Name || selectedAssignment.name}
               </p>
             </div>
             
             <form onSubmit={handleGradeSubmit} className="p-6 space-y-4">
               <Input
-                label={`Score (out of ${selectedAssignment.pointsPossible})`}
+label={`Score (out of ${selectedAssignment.pointsPossible || selectedAssignment.points_possible})`}
                 name="score"
                 type="number"
                 min="0"
-                max={selectedAssignment.pointsPossible}
+                max={selectedAssignment.pointsPossible || selectedAssignment.points_possible}
                 step="0.1"
                 value={gradeForm.score}
                 onChange={(e) => setGradeForm(prev => ({ ...prev, score: e.target.value }))}

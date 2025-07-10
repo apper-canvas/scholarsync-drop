@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { toast } from 'react-toastify';
-import { format, startOfMonth, endOfMonth, eachDayOfInterval, isSameDay, isToday } from 'date-fns';
-import Button from '@/components/atoms/Button';
-import Select from '@/components/atoms/Select';
-import Loading from '@/components/ui/Loading';
-import Error from '@/components/ui/Error';
-import Empty from '@/components/ui/Empty';
-import AttendanceCell from '@/components/molecules/AttendanceCell';
-import ApperIcon from '@/components/ApperIcon';
-import attendanceService from '@/services/api/attendanceService';
-import studentService from '@/services/api/studentService';
-import classService from '@/services/api/classService';
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { toast } from "react-toastify";
+import { eachDayOfInterval, endOfMonth, format, isSameDay, isToday, startOfMonth } from "date-fns";
+import ApperIcon from "@/components/ApperIcon";
+import Select from "@/components/atoms/Select";
+import Button from "@/components/atoms/Button";
+import Empty from "@/components/ui/Empty";
+import Error from "@/components/ui/Error";
+import Loading from "@/components/ui/Loading";
+import Students from "@/components/pages/Students";
+import AttendanceCell from "@/components/molecules/AttendanceCell";
+import attendanceService from "@/services/api/attendanceService";
+import classService from "@/services/api/classService";
+import studentService from "@/services/api/studentService";
 
 const Attendance = () => {
   const [classes, setClasses] = useState([]);
@@ -70,15 +71,15 @@ const Attendance = () => {
     return students.filter(student => currentClass.studentIds.includes(student.Id));
   };
 
-  const getAttendanceRecord = (studentId, date) => {
+const getAttendanceRecord = (studentId, date) => {
     return attendance.find(record => 
-      record.studentId === studentId && 
+      (record.studentId || record.student_id) === studentId && 
       record.date === date && 
-      record.classId.toString() === selectedClass
+      (record.classId || record.class_id)?.toString() === selectedClass
     );
   };
 
-  const handleAttendanceChange = async (studentId, date, status) => {
+const handleAttendanceChange = async (studentId, date, status) => {
     try {
       const existingRecord = getAttendanceRecord(studentId, date);
       const attendanceData = {
@@ -126,13 +127,13 @@ const Attendance = () => {
     return eachDayOfInterval({ start, end });
   };
 
-  const getAttendanceStats = (studentId) => {
+const getAttendanceStats = (studentId) => {
     const monthStart = startOfMonth(currentMonth);
     const monthEnd = endOfMonth(currentMonth);
     
     const monthAttendance = attendance.filter(record => 
-      record.studentId === studentId &&
-      record.classId.toString() === selectedClass &&
+      (record.studentId || record.student_id) === studentId &&
+      (record.classId || record.class_id)?.toString() === selectedClass &&
       new Date(record.date) >= monthStart &&
       new Date(record.date) <= monthEnd
     );
@@ -241,7 +242,7 @@ const Attendance = () => {
       ) : (
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
           <div className="px-6 py-4 border-b border-gray-200 flex items-center justify-between">
-            <h3 className="text-lg font-medium text-gray-900">
+<h3 className="text-lg font-medium text-gray-900">
               Attendance - {classes.find(c => c.Id.toString() === selectedClass)?.name}
             </h3>
             <div className="flex items-center space-x-4 text-sm text-gray-500">
@@ -291,18 +292,18 @@ const Attendance = () => {
                       <td className="sticky left-0 z-10 bg-white px-6 py-4 whitespace-nowrap border-r border-gray-200">
                         <div className="flex items-center">
                           <div className="flex-shrink-0 h-8 w-8">
-                            <div className="h-8 w-8 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center">
+<div className="h-8 w-8 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center">
                               <span className="text-white text-xs font-medium">
-                                {student.firstName[0]}{student.lastName[0]}
+                                {(student.firstName || student.first_name)?.[0]}{(student.lastName || student.last_name)?.[0]}
                               </span>
                             </div>
                           </div>
                           <div className="ml-3">
                             <div className="text-sm font-medium text-gray-900">
-                              {student.firstName} {student.lastName}
+                              {student.first_name || student.firstName} {student.last_name || student.lastName}
                             </div>
                             <div className="text-xs text-gray-500">
-                              {student.studentId}
+                              {student.student_id || student.studentId}
                             </div>
                           </div>
                         </div>

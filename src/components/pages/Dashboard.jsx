@@ -99,8 +99,8 @@ const Dashboard = () => {
       >
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold mb-2 font-display">
-              Welcome back, Ms. Johnson!
+<h1 className="text-2xl font-bold mb-2 font-display">
+              Welcome back to ScholarSync!
             </h1>
             <p className="text-primary-100">
               Here's what's happening with your classes today.

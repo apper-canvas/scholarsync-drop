@@ -19,7 +19,7 @@ const Classes = () => {
   const [error, setError] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [editingClass, setEditingClass] = useState(null);
-  const [formData, setFormData] = useState({
+const [formData, setFormData] = useState({
     name: '',
     subject: '',
     section: '',
@@ -99,21 +99,21 @@ const Classes = () => {
     }
   };
 
-  const handleEdit = (classItem) => {
+const handleEdit = (classItem) => {
     setEditingClass(classItem);
     setFormData({
-      name: classItem.name,
-      subject: classItem.subject,
-      section: classItem.section,
-      schedule: classItem.schedule,
-      room: classItem.room,
+      name: classItem.Name || classItem.name || '',
+      subject: classItem.subject || '',
+      section: classItem.section || '',
+      schedule: classItem.schedule || '',
+      room: classItem.room || '',
       studentIds: classItem.studentIds || []
     });
     setShowModal(true);
   };
 
-  const handleDelete = async (classItem) => {
-    if (window.confirm(`Are you sure you want to delete ${classItem.name}?`)) {
+const handleDelete = async (classItem) => {
+    if (window.confirm(`Are you sure you want to delete ${classItem.Name || classItem.name}?`)) {
       try {
         await classService.delete(classItem.Id);
         toast.success('Class deleted successfully!');
@@ -195,8 +195,8 @@ const Classes = () => {
           >
             <div className="flex items-start justify-between mb-4">
               <div className="flex-1">
-                <h3 className="text-lg font-semibold text-gray-900 mb-1">
-                  {classItem.name}
+<h3 className="text-lg font-semibold text-gray-900 mb-1">
+                  {classItem.Name || classItem.name}
                 </h3>
                 <Badge variant="primary" size="sm">
                   {classItem.subject}
@@ -246,12 +246,12 @@ const Classes = () => {
                   Enrolled Students:
                 </p>
                 <div className="flex flex-wrap gap-1">
-                  {getEnrolledStudents(classItem.studentIds || []).slice(0, 3).map(student => (
+{getEnrolledStudents(classItem.studentIds || []).slice(0, 3).map(student => (
                     <span
                       key={student.Id}
                       className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-800"
                     >
-                      {student.firstName} {student.lastName}
+                      {student.first_name} {student.last_name}
                     </span>
                   ))}
                   {(classItem.studentIds || []).length > 3 && (
@@ -350,11 +350,11 @@ const Classes = () => {
                             className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
                           />
                           <div className="flex-1">
-                            <p className="text-sm font-medium text-gray-900">
-                              {student.firstName} {student.lastName}
+<p className="text-sm font-medium text-gray-900">
+                              {student.first_name} {student.last_name}
                             </p>
                             <p className="text-xs text-gray-500">
-                              {student.studentId} • {student.gradeLevel}
+                              {student.student_id} • {student.grade_level}
                             </p>
                           </div>
                         </label>

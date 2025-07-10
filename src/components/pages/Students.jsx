@@ -19,7 +19,7 @@ const Students = () => {
   const [error, setError] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [editingStudent, setEditingStudent] = useState(null);
-  const [formData, setFormData] = useState({
+const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
@@ -55,12 +55,12 @@ const Students = () => {
     loadStudents();
   }, []);
 
-  const filteredStudents = students.filter(student =>
+const filteredStudents = students.filter(student =>
     searchValue === '' || 
-    student.firstName.toLowerCase().includes(searchValue.toLowerCase()) ||
-    student.lastName.toLowerCase().includes(searchValue.toLowerCase()) ||
-    student.email.toLowerCase().includes(searchValue.toLowerCase()) ||
-    student.studentId.toLowerCase().includes(searchValue.toLowerCase())
+    (student.first_name || '').toLowerCase().includes(searchValue.toLowerCase()) ||
+    (student.last_name || '').toLowerCase().includes(searchValue.toLowerCase()) ||
+    (student.email || '').toLowerCase().includes(searchValue.toLowerCase()) ||
+    (student.student_id || '').toLowerCase().includes(searchValue.toLowerCase())
   );
 
   const handleInputChange = (e) => {
@@ -90,23 +90,23 @@ const Students = () => {
     }
   };
 
-  const handleEdit = (student) => {
+const handleEdit = (student) => {
     setEditingStudent(student);
     setFormData({
-      firstName: student.firstName,
-      lastName: student.lastName,
-      email: student.email,
-      dateOfBirth: student.dateOfBirth,
-      enrollmentDate: student.enrollmentDate,
-      gradeLevel: student.gradeLevel,
-      studentId: student.studentId,
-      photoUrl: student.photoUrl || ''
+      firstName: student.first_name || '',
+      lastName: student.last_name || '',
+      email: student.email || '',
+      dateOfBirth: student.date_of_birth || '',
+      enrollmentDate: student.enrollment_date || '',
+      gradeLevel: student.grade_level || '',
+      studentId: student.student_id || '',
+      photoUrl: student.photo_url || ''
     });
     setShowModal(true);
   };
 
-  const handleDelete = async (student) => {
-    if (window.confirm(`Are you sure you want to delete ${student.firstName} ${student.lastName}?`)) {
+const handleDelete = async (student) => {
+    if (window.confirm(`Are you sure you want to delete ${student.first_name} ${student.last_name}?`)) {
       try {
         await studentService.delete(student.Id);
         toast.success('Student deleted successfully!');
@@ -222,23 +222,23 @@ const Students = () => {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
                         <div className="flex-shrink-0 h-10 w-10">
-                          {student.photoUrl ? (
+{student.photo_url ? (
                             <img 
                               className="h-10 w-10 rounded-full object-cover" 
-                              src={student.photoUrl} 
-                              alt={`${student.firstName} ${student.lastName}`} 
+                              src={student.photo_url} 
+                              alt={`${student.first_name} ${student.last_name}`} 
                             />
                           ) : (
                             <div className="h-10 w-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center">
                               <span className="text-white text-sm font-medium">
-                                {student.firstName[0]}{student.lastName[0]}
+                                {student.first_name?.[0] || 'U'}{student.last_name?.[0] || 'U'}
                               </span>
                             </div>
                           )}
                         </div>
                         <div className="ml-4">
-                          <div className="text-sm font-medium text-gray-900">
-                            {student.firstName} {student.lastName}
+<div className="text-sm font-medium text-gray-900">
+                            {student.first_name} {student.last_name}
                           </div>
                           <div className="text-sm text-gray-500">
                             {student.email}
@@ -247,15 +247,15 @@ const Students = () => {
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {student.studentId}
+                      {student.student_id}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <Badge variant="primary" size="sm">
-                        {student.gradeLevel}
+<Badge variant="primary" size="sm">
+                        {student.grade_level}
                       </Badge>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {new Date(student.enrollmentDate).toLocaleDateString()}
+                      {new Date(student.enrollment_date).toLocaleDateString()}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                       <div className="flex items-center justify-end space-x-2">
